@@ -107,5 +107,25 @@ namespace FlattenArrayDemo.Tests
 
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void DoubleLayeredArray()
+        {
+            var expected = new int[] { 1, 2, 3, 4 };
+            var nestedObjectArray = new Object[]
+            {
+                new Object[] 
+                {
+                    1,
+                    2,
+                    new Object[] { 3 }
+                },
+                4
+            };
+
+            var actual = helper.Flatten(nestedObjectArray);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }
